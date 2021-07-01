@@ -10,6 +10,6 @@ The difference between the data will be logged in arp_table_log file and notifie
 
 Requirements:
 
-python3.8
-netmiko 3.3.0
-python-dotenv 3.3.0
+python3.8,
+netmiko 3.3.0,
+python-dotenv 3.3.0,
