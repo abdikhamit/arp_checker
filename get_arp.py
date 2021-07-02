@@ -46,7 +46,7 @@ arp_table = f'./{device_name}.arp_table'
 arp_table_diff = f'./{device_name}.arp_table_diff'
 
 
-#Parse the arp table output to unclude IP, MAC and INTERFACE
+#Parse the arp table output to include IP, MAC and INTERFACE
 arp_entry = []
 for output in command_output.splitlines()[1:]:
     output = ' - '.join(output.split()[i] for i in [1,3,5])
@@ -62,8 +62,7 @@ if os.path.exists(arp_table):
     #Compare arp output with arp_table file
     with open(arp_table) as f:
         s = set([line.rstrip('\n') for line in f])
-        diff_arp=s.difference(arp_entry)
-
+        diff_arp=set(arp_entry).difference(s)
 
     diff_arp.discard("\n")
     
@@ -91,14 +90,14 @@ This is a test email to track arp_table changes:
     msg = EmailMessage()
     msg['Subject'] = 'Test Email' # Subject of Email
     msg['From'] = email_username
-    msg['To'] = 'nurhat_enu@mail.ru' # Reciver of the Mail
+    msg['To'] = # Reciver of the Mail
     msg.set_content(msg_content) # Email body or Content
 
     #Code from here will send the message
     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
         smtp.login(email_username,email_password) 
         smtp.send_message(msg) 
-
+    
 else:
     with open(arp_table,'w') as f:
         for i in arp_entry:

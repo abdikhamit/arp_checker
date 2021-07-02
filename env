@@ -1,4 +1,4 @@
-USERNAME = #device access username
-PASSWORD = #device access password
+USERNAME = #username to access cisco_ios device 
+PASSWORD = #password to access cisco_ios device
 EMAIL_USERNAME = 
 EMAIL_PASSWORD = 
